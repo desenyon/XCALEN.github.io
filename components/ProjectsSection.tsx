@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 const projects = [
   {
     title: 'RefineLab',
-    period: 'Nov 2024',
+    period: 'Nov 2025',
     status: 'Active',
     description: 'A production-ready writing growth engine that analyzes essays, teaches skills, tracks growth over time, and helps understand grading patterns—all while maintaining strict academic integrity. Features 10+ core capabilities including context-aware structure mapping, real-time writing skill analysis, and grade prediction.',
     tech: ['Next.js 15', 'TypeScript', 'PostgreSQL', 'Prisma', 'Gemini 2.0 Flash', 'NextAuth.js', 'Tesseract.js OCR'],
@@ -15,7 +15,7 @@ const projects = [
   },
   {
     title: 'DivergentUnity',
-    period: 'Nov 2024',
+    period: 'Nov 2025',
     status: 'Active',
     description: 'AI-powered consensus building platform that bridges divides through intelligent debate analysis. Uses Gemini AI to extract underlying values from opposing viewpoints, identifies common ground, and generates balanced compromise solutions. Won 1st Place for Best UI/UX at Sierra Hacks.',
     tech: ['Next.js 14', 'TypeScript', 'FastAPI', 'Python', 'SQLModel', 'Gemini 1.5 Flash', 'Recharts'],
@@ -24,7 +24,7 @@ const projects = [
   },
   {
     title: 'OpenCare',
-    period: 'Oct 2024',
+    period: 'Oct 2025',
     status: 'Active',
     description: 'AI-powered healthcare access platform that simplifies Medi-Cal and Medicaid eligibility, enrollment, and benefits discovery. Features NLP-driven eligibility engine, smart program matching, and automated form filling. Won 3rd Place ($200) at LG Hacks.',
     tech: ['Next.js', 'TypeScript', 'AWS Cognito', 'DynamoDB', 'Lambda', 'GPT-4', 'SHAP'],
@@ -33,7 +33,7 @@ const projects = [
   },
   {
     title: 'FireGuard',
-    period: 'Sep 2024',
+    period: 'Sep 2025',
     status: 'Completed',
     description: 'Real-time wildfire safety app for California using NASA FIRMS API, CAL FIRE, and OpenWeatherMap data. Features include danger radius alerts, novel "Smoke Compass" using air quality data to navigate smoke-filled areas, crowdsourced fire reporting, and Gemini-powered AI chatbot for fire safety questions.',
     tech: ['Flutter', 'Dart', 'Firebase', 'NASA FIRMS API', 'Gemini API', 'OpenWeatherMap'],
@@ -41,7 +41,7 @@ const projects = [
   },
   {
     title: 'Skin Cancer Detection System',
-    period: 'Jan 2024 - Mar 2024',
+    period: 'Jan 2025 - Mar 2025',
     status: 'Published',
     description: 'Deep learning model for multi-class skin cancer classification achieving 91% accuracy. Implemented data augmentation and transfer learning with ResNet50. Won SYNOPSYS First Place in Computational Biology at SCVSEF and qualified for California Science & Engineering Fair (CSEF).',
     tech: ['Python', 'TensorFlow', 'Keras', 'ResNet50', 'OpenCV', 'NumPy', 'Pandas'],

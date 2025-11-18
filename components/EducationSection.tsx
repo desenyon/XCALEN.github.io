@@ -5,18 +5,18 @@ import { useInView } from 'react-intersection-observer';
 
 const education = [
   {
-    title: 'Los Gatos High School',
-    period: 'Aug 2024 — Jun 2028',
+    title: 'High School',
+    period: 'Aug 2024 — Jun 2027',
     status: 'Current',
-    description: 'High School Junior focusing on Computer Science and Mathematics. Expected graduation 2028.',
+    description: 'High School Junior focusing on Computer Science and Mathematics. Graduation 2027.',
     tags: ['Computer Science', 'Mathematics'],
   },
   {
-    title: 'Brown Pre-College',
+    title: 'Neural Network & Philosophy of AI Class',
     period: 'Summer 2024',
     status: 'Completed',
-    description: 'Intensive summer program in Entrepreneurship and Innovation.',
-    tags: ['Entrepreneurship'],
+    description: 'Intensive program exploring the technical architecture of neural networks and the philosophical implications of artificial intelligence.',
+    tags: ['Artificial Intelligence', 'Philosophy', 'Neural Networks'],
   },
   {
     title: 'UC Berkeley Haas',
