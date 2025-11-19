@@ -2,12 +2,10 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import HeroSection from '@/components/HeroSection';
 import CustomCursor from '@/components/CustomCursor';
 import TradingViewTicker from '@/components/TradingViewTicker';
 
-export default function Home() {
-
+export default function SharedLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-black text-white">
       <CustomCursor />
@@ -20,6 +18,7 @@ export default function Home() {
         {/* Spillout glow effect */}
         <div className="absolute top-0 -right-20 w-40 h-full bg-gradient-to-r from-cyan-500/10 via-cyan-500/5 to-transparent blur-2xl pointer-events-none" />
         <div className="absolute top-0 -right-32 w-64 h-full bg-gradient-to-r from-blue-500/5 via-blue-500/2 to-transparent blur-3xl pointer-events-none" />
+        
         {/* Header */}
         <div className="space-y-6">
           <motion.div
@@ -27,7 +26,9 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl font-bold mb-3">naitik</h1>
+            <Link href="/">
+              <h1 className="text-4xl font-bold mb-3 cursor-pointer hover:text-white/80 transition-colors">naitik</h1>
+            </Link>
             <p className="text-white/50 text-sm tracking-wider">16yr old HS Student</p>
             <p className="text-white/40 text-sm tracking-wider">AI Researcher</p>
             <p className="text-white/40 text-sm tracking-wider">San Francisco Bay Area</p>
@@ -109,7 +110,7 @@ export default function Home() {
       {/* Main Content */}
       <main className="min-h-screen lg:ml-80">
         <TradingViewTicker />
-        <HeroSection />
+        {children}
       </main>
 
       {/* Mobile Navigation */}
