@@ -46,7 +46,7 @@ export default function TradingViewTicker() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="w-full mb-8 lg:mb-12"
+      className="w-full"
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="relative border border-white/10 rounded-lg overflow-hidden bg-black/40 backdrop-blur-sm">

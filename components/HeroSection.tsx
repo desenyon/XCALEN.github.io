@@ -1,92 +1,99 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export default function HeroSection() {
   return (
-    <section id="hero" className="min-h-screen flex items-start justify-center px-6 lg:px-20 pt-12 pb-20">
-      <div className="max-w-5xl w-full">
+    <section id="hero" className="min-h-[calc(100vh-80px)] flex items-center px-6 lg:px-20 relative pt-8">
+      {/* Subtle grid */}
+      <div className="absolute inset-0 grid-bg opacity-30" />
+      
+      {/* Keyboard hint - top right */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.5 }}
+        className="absolute top-4 right-8 flex items-center gap-2 text-[11px] text-white/50 font-mono"
+      >
+        <span>Press</span>
+        <span className="kbd">1</span>
+        <span className="text-white/30">—</span>
+        <span className="kbd">4</span>
+        <span>to navigate</span>
+      </motion.div>
+      
+      <div className="max-w-3xl w-full relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
           className="space-y-8"
         >
-          {/* Mobile Header (hidden on desktop) */}
-          <div className="lg:hidden space-y-4 mb-12">
-            <h1 className="text-5xl font-bold">naitik</h1>
-            <p className="text-white/50 text-sm tracking-wider">16yr old HS Student + AI Researcher</p>
-            <p className="text-white/40 text-sm tracking-wider">San Francisco Bay Area</p>
+          {/* Mobile Header */}
+          <div className="lg:hidden mb-8">
+            <h1 className="text-sm font-medium text-white tracking-[0.15em]">
+              NAITIK GUPTA
+            </h1>
           </div>
 
-          {/* Main Content */}
-          <div className="space-y-6">
-            {/* Tech Art */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1, duration: 0.8 }}
-              className="flex justify-center items-center py-2"
-            >
-              <div className="font-mono text-cyan-500/60 leading-tight">
-                <pre className="text-xs md:text-sm text-center">
-{`     ∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿
-    ╱▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔╲
-   ▏     ⚡  NEURAL  NETWORKS  ⚡              ▕
-   ▏   ◈━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━◈    ▕
-   ▏     ▸ Machine Learning  ▸ Research      ▕
-   ▏     ▸ AI Development    ▸ Innovation    ▕
-   ▏   ◈━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━◈    ▕
-    ╲▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁╱
-     ∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿∿`}
-                </pre>
-              </div>
-            </motion.div>
+          {/* Stats bar - moved up, bigger */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.15 }}
+            className="flex items-center gap-8 text-[13px] font-mono text-white/50 tracking-wide"
+          >
+            <span>1st @ SCVSEFA SYOPSYS </span>
+            <span className="w-px h-4 bg-white/20" />
+            <span>8TH QUANTCONNECT OPEN RANK</span>
+            <span className="w-px h-4 bg-white/20" />
+            <span>18K+ VIEWS ON MEDIUM</span>
+          </motion.div>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-white/60 text-lg md:text-xl leading-relaxed font-light"
-            >
-              Curious and self-driven high school junior with a strong interest in artificial intelligence and applied research. 
-              I enjoy exploring complex problems, learning independently, and turning ideas into projects that have real users. 
-              Experienced in leading student-driven initiatives, collaborating with mentors, and presenting technical work in competitive and academic environments.
-            </motion.p>
+          {/* Main Headline - Visibl style */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-[1.1] tracking-tight">
+              EXPLORING THINGS LIKE:<br />
+              <span className="text-white/50">QUANTITATIVE RESEARCH</span><br />
+              <span className="text-white/50">& MACHINE LEARNING</span>
+            </h2>
+          </motion.div>
 
-            {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="flex flex-wrap gap-8 pt-8"
-            >
-              {[
-                { value: '15+', label: 'Articles' },
-                { value: '13K+', label: 'Views' },
-                { value: '4+', label: 'Awards' },
-              ].map((stat) => (
-                <div key={stat.label} className="space-y-1">
-                  <div className="text-3xl md:text-4xl font-bold text-white">{stat.value}</div>
-                  <div className="text-xs text-white/40 tracking-wider uppercase">{stat.label}</div>
-                </div>
-              ))}
-            </motion.div>
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="text-white/50 text-sm md:text-base leading-relaxed max-w-xl uppercase tracking-wide"
+          >
+            Curious and self-driven high school junior focused on artificial intelligence, computational finance, and applied research. 
+          </motion.p>
 
-            {/* Tech Focus */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="flex flex-wrap gap-4 pt-4"
+          {/* Buttons - Visibl style */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="flex flex-col sm:flex-row gap-3 pt-6"
+          >
+            <Link 
+              href="/projects"
+              className="btn-primary inline-flex items-center justify-center gap-2"
             >
-              {['Python', 'Machine Learning', 'Leadership', 'Communication', 'Research'].map((tech) => (
-                <span key={tech} className="text-sm text-white/40 hover:text-white/60 transition-colors">
-                  {tech}
-                </span>
-              ))}
-            </motion.div>
-          </div>
+              VIEW PROJECTS
+            </Link>
+            <Link 
+              href="/contact"
+              className="btn-secondary inline-flex items-center justify-center gap-2"
+            >
+              CONTACT →
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </section>

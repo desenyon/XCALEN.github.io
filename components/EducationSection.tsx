@@ -8,63 +8,61 @@ const education = [
     title: 'High School',
     period: 'Aug 2024 — Jun 2027',
     status: 'Current',
-    description: 'High School Junior focusing on Computer Science and Mathematics. Graduation 2027.',
-    tags: ['Computer Science', 'Mathematics'],
+    description: 'High School Junior. Focus areas: Computer Science, Mathematics, Spanish (Limited Working Proficiency).',
   },
   {
-    title: 'Neural Network & Philosophy of AI Class',
-    period: 'Summer 2024',
+    title: 'Brown Pre-College Program',
+    period: 'Completed',
     status: 'Completed',
-    description: 'Intensive program exploring the technical architecture of neural networks and the philosophical implications of artificial intelligence.',
-    tags: ['Artificial Intelligence', 'Philosophy', 'Neural Networks'],
-  },
-  {
-    title: 'UC Berkeley Haas',
-    period: 'Summer 2023',
-    status: 'Completed',
-    description: 'Business and entrepreneurship program at UC Berkeley Haas School of Business.',
-    tags: ['Business'],
+    description: 'Completion Certificate. Academic enrichment in university-level coursework.',
   },
 ];
 
 const awards = [
   {
-    title: 'Sierra Hacks 1st Best UI/UX Design',
-    period: 'Nov 2025',
-    description: 'DivergentUnity is an AI-driven consensus engine that turns polarized arguments into structured value-maps, shared goals, and workable compromise paths. It reframes conflict from "who\'s right" to "what each side needs," giving groups a fast, logic-based way to converge without losing their core principles.',
+    title: 'SCVSEF SYNOPSYS First Place Award',
+    category: 'Computational Biology and Bioinformatics',
+    period: 'Mar 2025',
+    description: 'First place for AI-driven skin cancer detection research using deep learning and transfer learning.',
+  },
+  {
+    title: 'CSEF Qualifier',
+    category: 'California Science & Engineering Fair',
+    period: 'Apr 2025',
+    description: 'Qualified to present research at CSEF in Los Angeles, representing Santa Clara Valley—the most competitive region in California.',
+  },
+  {
+    title: 'SCVSEF SYNOPSYS RRI Honorable Mention',
+    category: 'Research Recognition',
+    period: '2025',
+    description: 'Honorable Mention for research quality and innovation.',
   },
   {
     title: 'LG Hacks 3rd Place',
+    category: 'Hackathon',
     period: 'Oct 2025',
-    description: 'OpenCare\'s mission is to simplify access to healthcare programs across the United States. We use AI to guide users through eligibility, applications, and forms, provide clear explanations, and connect people to local resources. Won $200.',
+    description: 'OpenCare: AI platform simplifying healthcare access through intelligent eligibility matching.',
   },
   {
-    title: 'CSEF Qualifier – California Science & Engineering Fair',
-    period: 'Apr 2025',
-    description: 'Qualified and presented research at the California Science and Engineering Fair (CSEF) in Los Angeles, representing Santa Clara Valley, the most competitive region in the state and one of the most in the world with over 1,000 top student researchers. Selected for excellence in biotechnology innovation, focusing on the early detection of skin cancer through machine learning–based image analysis.',
-  },
-  {
-    title: 'SCVSEF SYNOPSYS First Place Award – Computational Biology and Bioinformatics',
-    period: 'Mar 2025',
-    description: 'First place in Computational Biology and Bioinformatics at Santa Clara Valley Science and Engineering Fair for AI-driven skin cancer detection research.',
+    title: 'World Language Department Excellence Award',
+    category: 'Spanish',
+    period: '2024',
+    description: 'Recognition for academic excellence in Spanish language studies.',
   },
 ];
 
 const certifications = [
+  { title: 'Introduction to Model Context Protocol', issuer: 'Anthropic' },
+  { title: 'Ask Questions to Make Data-Driven Decisions', issuer: 'Google' },
+  { title: 'Prepare Data for Exploration', issuer: 'Google' },
+  { title: 'Foundations: Data, Data, Everywhere', issuer: 'Google' },
+];
+
+const publications = [
   {
-    title: 'Introduction to Model Context Protocol',
-    issuer: 'Anthropic',
-    date: 'Aug 2025',
-  },
-  {
-    title: 'Model Context Protocol: Advanced Topics',
-    issuer: 'Anthropic',
-    date: 'Aug 2025',
-  },
-  {
-    title: 'Academy Accreditation - Generative AI Fundamentals',
-    issuer: 'Databricks',
-    date: 'Jul 2025',
+    title: 'How can Artificial Intelligence Techniques Effectively Enhance Credit Card Fraud Detection Systems?',
+    venue: 'Journal of Student Research',
+    link: 'https://www.jsr.org/hs/index.php/path/article/view/6454',
   },
 ];
 
@@ -72,112 +70,112 @@ export default function EducationSection() {
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
 
   return (
-    <section id="education" ref={ref} className="py-20 px-6 lg:px-20">
-      <div className="max-w-5xl">
-        {/* Education */}
+    <section id="education" ref={ref} className="pt-8 pb-20 px-6 lg:px-20 relative">
+      <div className="absolute inset-0 grid-bg opacity-30" />
+      
+      <div className="max-w-4xl relative z-10">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0 }}
+          animate={inView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5 }}
           className="mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Education</h2>
+          <div className="flex items-center gap-4 mb-4">
+            <span className="text-white/30 font-mono text-[11px]">03</span>
+            <div className="w-8 h-px bg-white/15" />
+          </div>
+          <h2 className="text-3xl md:text-4xl font-light text-white tracking-tight">EDUCATION & RECOGNITION</h2>
         </motion.div>
 
-        <div className="space-y-16">
+        {/* Education */}
+        <div className="space-y-4 mb-16">
+          <h3 className="text-sm font-mono text-white/40 uppercase tracking-wider mb-4">Education</h3>
           {education.map((edu, index) => (
             <motion.div
               key={edu.title}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="card rounded-lg p-5"
             >
-              <div className="flex items-center gap-4 mb-4 text-sm">
-                <span className="text-white/40">{edu.period}</span>
-                <span className="text-white/40">*</span>
-                <span className="text-white/40">{edu.status}</span>
+              <div className="flex flex-wrap justify-between items-start gap-2 mb-2">
+                <h4 className="text-lg font-semibold text-white">{edu.title}</h4>
+                <span className={`px-2 py-1 rounded text-xs font-mono ${
+                  edu.status === 'Current' ? 'status-active' : 'status-completed'
+                }`}>
+                  {edu.status}
+                </span>
               </div>
-
-              <div className="border border-white/10 hover:border-white/20 transition-colors duration-300">
-                <div className="p-8 border-b border-white/10">
-                  <h3 className="text-2xl md:text-3xl font-bold text-white">{edu.title}</h3>
-                </div>
-
-                <div className="p-8 space-y-6">
-                  <p className="text-white/60 leading-relaxed">{edu.description}</p>
-
-                  <div className="flex flex-wrap gap-3">
-                    {edu.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 text-xs text-white/50 border border-white/10"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              <p className="text-white/50 text-sm font-mono mb-2">{edu.period}</p>
+              <p className="text-white/60 text-sm">{edu.description}</p>
             </motion.div>
           ))}
         </div>
 
-        {/* Awards & Recognition */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-32 mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Awards & Recognition</h2>
-        </motion.div>
+        {/* Awards */}
+        <div className="space-y-4 mb-16">
+          <h3 className="text-sm font-mono text-white/40 uppercase tracking-wider mb-4">Awards & Honors</h3>
+          <div className="grid md:grid-cols-2 gap-4">
+            {awards.map((award, index) => (
+              <motion.div
+                key={award.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.2 + index * 0.05 }}
+                className="card rounded-lg p-5"
+              >
+                <p className="text-white/50 text-xs font-mono mb-2">{award.period}</p>
+                <h4 className="text-base font-semibold text-white mb-1">{award.title}</h4>
+                <p className="text-white/40 text-xs font-mono mb-2">{award.category}</p>
+                <p className="text-white/60 text-sm">{award.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
 
-        <div className="space-y-12">
-          {awards.map((award, index) => (
-            <motion.div
-              key={award.title}
-              initial={{ opacity: 0, y: 40 }}
+        {/* Publications */}
+        <div className="space-y-4 mb-16">
+          <h3 className="text-sm font-mono text-white/40 uppercase tracking-wider mb-4">Publications</h3>
+          {publications.map((pub, index) => (
+            <motion.a
+              key={pub.title}
+              href={pub.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+              transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+              className="card rounded-lg p-5 block group"
             >
-              <div className="flex items-center gap-4 mb-3 text-sm">
-                <span className="text-white/40">{award.period}</span>
+              <h4 className="text-base font-medium text-white group-hover:text-white/70 transition-colors mb-1">
+                {pub.title}
+              </h4>
+              <div className="flex items-center gap-2 text-sm">
+                <span className="text-white/50">{pub.venue}</span>
+                <span className="text-white/40 font-mono text-xs">→</span>
               </div>
-
-              <div className="border border-white/10 hover:border-white/20 transition-colors duration-300">
-                <div className="p-8">
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-4">{award.title}</h3>
-                  <p className="text-white/60 leading-relaxed">{award.description}</p>
-                </div>
-              </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
 
         {/* Certifications */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-32 mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Certifications</h2>
-        </motion.div>
-
-        <div className="space-y-8">
-          {certifications.map((cert, index) => (
-            <motion.div
-              key={cert.title}
-              initial={{ opacity: 0, y: 40 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-              className="border border-white/10 hover:border-white/20 transition-colors duration-300 p-6"
-            >
-              <h3 className="text-lg md:text-xl font-bold text-white mb-2">{cert.title}</h3>
-              <p className="text-sm text-white/60">{cert.issuer}</p>
-              <p className="text-sm text-white/40 mt-1">{cert.date}</p>
-            </motion.div>
-          ))}
+        <div className="space-y-4">
+          <h3 className="text-sm font-mono text-white/40 uppercase tracking-wider mb-4">Certifications</h3>
+          <div className="grid md:grid-cols-2 gap-3">
+            {certifications.map((cert, index) => (
+              <motion.div
+                key={cert.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.4 + index * 0.05 }}
+                className="card rounded-lg p-4"
+              >
+                <h4 className="text-sm font-medium text-white mb-1">{cert.title}</h4>
+                <p className="text-white/40 text-xs font-mono">{cert.issuer}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
