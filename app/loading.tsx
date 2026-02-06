@@ -1,26 +1,15 @@
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Loading...',
-};
-
 export default function Loading() {
   return (
-    <div className="fixed inset-0 bg-black flex items-center justify-center z-50">
-      <div className="space-y-4">
-        <div className="flex items-center justify-center space-x-2">
+    <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
+      <div className="flex flex-col items-center gap-4">
+        <div className="flex gap-1.5">
           {[0, 1, 2].map((i) => (
-            <div
+            <span
               key={i}
-              className="w-4 h-4 bg-cyan-400 rounded-full animate-pulse"
-              style={{
-                animationDelay: `${i * 0.2}s`,
-              }}
+              className="w-2 h-2 rounded-full bg-[#c8ff00] animate-pulse"
+              style={{ animationDelay: `${i * 0.15}s` }}
             />
           ))}
-        </div>
-        <div className="font-mono text-cyan-400 text-center text-sm">
-          LOADING.SYSTEM...
         </div>
       </div>
     </div>

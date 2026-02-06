@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ["latin"],
-  variable: '--font-inter',
+  variable: "--font-inter",
 });
 
-const jetbrainsMono = JetBrains_Mono({ 
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: '--font-jetbrains',
+  variable: "--font-space",
 });
 
 export const metadata: Metadata = {
-  title: "Naitik Gupta | AI Engineer & Creative Technologist",
-  description: "High school AI researcher and engineer building the future of intelligent systems.",
+  title: "Naitik Gupta",
+  description:
+    "AI Researcher, Quantitative Finance, Full-Stack Engineering.",
 };
 
 export default function RootLayout({
@@ -24,8 +25,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body 
-        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-black text-white overflow-x-hidden`}
+      <body
+        className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased bg-[#0a0a0a] text-white overflow-x-hidden`}
         suppressHydrationWarning
       >
         {children}

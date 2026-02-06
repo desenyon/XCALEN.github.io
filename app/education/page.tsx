@@ -1,15 +1,5 @@
-import SharedLayout from '@/components/SharedLayout';
-import EducationSection from '@/components/EducationSection';
+import { redirect } from 'next/navigation';
 
-export const metadata = {
-  title: 'Education | Naitik Gupta',
-  description: 'Educational background, awards, and certifications of Naitik Gupta.',
-};
-
-export default function EducationPage() {
-  return (
-    <SharedLayout>
-      <EducationSection />
-    </SharedLayout>
-  );
+export default function EducationRoute() {
+  redirect('/');
 }
