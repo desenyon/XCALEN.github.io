@@ -6,17 +6,6 @@ import Image from 'next/image';
 
 // ─── DATA ────────────────────────────────────────────────────────
 
-const skills = [
-  'Quantitative Finance',
-  'Machine Learning',
-  'Python',
-  'LEAN / QuantConnect',
-  'Deep Learning',
-  'Full-Stack Engineering',
-  'Natural Language Processing',
-  'Research & Technical Writing',
-];
-
 const socialLinks = [
   { label: 'GitHub', href: 'https://github.com/desenyon', icon: 'gh' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/naitikpgupta/', icon: 'li' },
@@ -33,12 +22,20 @@ const navItems = [
 
 const projects = [
   {
+    title: 'NetworkEngine',
+    description: 'Lightweight Network Intrusion Detection System (NIDS) with signature-based detection and anomaly detection outputting to NDJSON.',
+    tags: ['Python', 'Cybersecurity', 'NIDS'],
+    link: 'https://github.com/desenyon/NetworkEngine',
+    period: 'Feb 2026',
+    featured: false,
+  },
+  {
     title: 'Sigma',
     description: 'AI-powered finance research agent. Natural language queries for market analysis, charts, and backtesting. Runs natively on macOS.',
     tags: ['Python', 'Agent', 'Finance', 'Research'],
     link: 'https://github.com/desenyon/sigma',
     period: 'Jan 2026',
-    featured: true,
+    featured: false,
   },
   {
     title: 'Flux-RX',
@@ -53,6 +50,7 @@ const projects = [
     tags: ['Python', 'Neural Networks', 'XAI'],
     link: 'https://github.com/desenyon/scope-rx',
     period: 'Jan 2026',
+    featured: true,
   },
   {
     title: 'Updraft-LM',
@@ -143,6 +141,14 @@ const projects = [
 const experiences = [
   {
     title: 'Founder',
+    company: 'Saerin',
+    period: 'Feb 2026 - Present',
+    location: 'Remote',
+    description: 'Building the AI & Finance Backbone. Check out our work at https://saerin.tech.',
+    logo: '/saerin-logo.png',
+  },
+  {
+    title: 'Founder',
     company: 'Sigma Financial Research',
     period: 'Jan 2026 - Present',
     location: 'California, Remote',
@@ -225,6 +231,7 @@ const certifications = [
 ];
 
 const contactLinks = [
+  { label: 'Saerin', value: 'saerin.tech', href: 'https://saerin.tech' },
   { label: 'Email', value: 'naitikpgupta@gmail.com', href: 'mailto:naitikpgupta@gmail.com' },
   { label: 'GitHub', value: 'github.com/desenyon', href: 'https://github.com/desenyon' },
   { label: 'LinkedIn', value: 'linkedin.com/in/naitikpgupta', href: 'https://linkedin.com/in/naitikpgupta' },
@@ -269,8 +276,8 @@ const staggerItem = {
 };
 
 const cardHover = {
-  rest: { scale: 1, y: 0 },
-  hover: { scale: 1.01, y: -2, transition: { duration: 0.25, ease: 'easeOut' as const } },
+  rest: { scale: 1, rotateX: 0, rotateY: 0, y: 0 },
+  hover: { scale: 1.02, rotateX: 4, rotateY: -2, y: -2, transition: { duration: 0.3, ease: 'easeOut' as const } },
 };
 
 // ─── PAGE CONTENT COMPONENTS ────────────────────────────────────
@@ -293,8 +300,8 @@ function AboutPage() {
       >
         Making cool stuff in
         <br />
-        <span className="text-[#c8ff00]">AI</span> and{' '}
-        <span className="text-[#c8ff00]">Finance</span>.
+        <span className="text-[#38bdf8]">AI</span> and{' '}
+        <span className="text-[#38bdf8]">Finance</span>.
       </motion.h2>
 
       <motion.div
@@ -304,18 +311,13 @@ function AboutPage() {
         transition={{ delay: 0.2, duration: 0.5 }}
       >
         <p className="text-[15px] text-white/60 leading-[1.7]">
-          I am Naitik Gupta, a high school student in the San Francisco Bay Area working across
-          artificial intelligence, quantitative finance, and full-stack engineering.
+          I am Naitik Gupta, an AI Researcher and Full-Stack Engineer. Founder of Saerin & Sigma Financial Research.
         </p>
         <p className="text-[15px] text-white/60 leading-[1.7]">
-          I design systematic trading strategies on QuantConnect and conduct applied AI research,
-          including award-winning and published work in medical imaging in winning First Place at SCVSEF SYNOPSYS and
-          qualified for CSEF, with published work in the Journal of Student Research in Financial Research.
+          Multi-time Hackathon Winner and 1st Place at SCVSEF SYNOPSYS with CSEF qualification. My research in medical imaging and financial systems is published in the Journal of Student Research.
         </p>
         <p className="text-[15px] text-white/60 leading-[1.7]">
-          15+ AI/ML articles on Medium with 18,000+ views. Interned at RagaAI building
-          agentic RAG pipelines. Leading the Hack Club chapter at my school with 30+
-          members. Founder of Sigma Financial Research.
+          I build systematic trading strategies on QuantConnect/LEAN and write about ML on Medium (15+ articles, 18k+ views). Over the summer, I interned at RagaAI building agentic RAG pipelines spanning local and cloud LLMs.
         </p>
       </motion.div>
 
@@ -332,7 +334,7 @@ function AboutPage() {
           { num: '3+', label: 'Hackathon Wins' },
         ].map((stat) => (
           <div key={stat.label} className="bg-[#141414] border border-white/[0.06] rounded-xl p-4 text-center">
-            <div className="text-2xl font-[family-name:var(--font-space)] font-bold text-[#c8ff00]">{stat.num}</div>
+            <div className="text-2xl font-[family-name:var(--font-space)] font-bold text-[#38bdf8]">{stat.num}</div>
             <div className="text-[11px] text-white/40 mt-1 uppercase tracking-wider">{stat.label}</div>
           </div>
         ))}
@@ -403,17 +405,17 @@ function AboutPage() {
               transition={{ delay: 0.5 + i * 0.06, duration: 0.4, ease: 'easeOut' as const }}
             >
               <motion.div
-                className={`border rounded-xl p-5 transition-colors duration-200 relative overflow-hidden ${
-                  strategy.live
-                    ? 'bg-[#141414] border-[#c8ff00]/15 hover:border-[#c8ff00]/35'
-                    : 'bg-[#141414] border-white/[0.06] hover:border-white/[0.14]'
-                }`}
-                whileHover={{ y: -2, scale: 1.005 }}
-                transition={{ duration: 0.2, ease: 'easeOut' as const }}
+                className={`border rounded-xl p-5 transition-colors duration-200 relative overflow-hidden ${strategy.live
+                  ? 'bg-[#141414] border-[#38bdf8]/15 hover:border-[#38bdf8]/35'
+                  : 'bg-[#141414] border-white/[0.06] hover:border-white/[0.14]'
+                  }`}
+                style={{ transformStyle: 'preserve-3d' }}
+                whileHover={{ y: -5, scale: 1.02, rotateX: 3, rotateY: -2, z: 20 }}
+                transition={{ duration: 0.3, ease: 'easeOut' as const }}
               >
                 {/* Accent line for live */}
                 {strategy.live && (
-                  <div className="absolute top-0 left-0 right-0 h-px bg-[#c8ff00]/25 group-hover:bg-[#c8ff00]/40 transition-colors" />
+                  <div className="absolute top-0 left-0 right-0 h-px bg-[#38bdf8]/25 group-hover:bg-[#38bdf8]/40 transition-colors" />
                 )}
 
                 {/* Header row */}
@@ -421,13 +423,13 @@ function AboutPage() {
                   <div className="flex items-center gap-2.5">
                     {strategy.live && (
                       <span className="relative flex h-1.5 w-1.5 shrink-0">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c8ff00] opacity-60"></span>
-                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#c8ff00]"></span>
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#38bdf8] opacity-60"></span>
+                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#38bdf8]"></span>
                       </span>
                     )}
                     <h4 className="text-[14px] font-semibold text-white">{strategy.name}</h4>
                     {strategy.live && (
-                      <span className="text-[9px] text-[#c8ff00]/60 uppercase tracking-wider font-medium">Live</span>
+                      <span className="text-[9px] text-[#38bdf8]/60 uppercase tracking-wider font-medium">Live</span>
                     )}
                   </div>
                   <svg className="w-3.5 h-3.5 text-white/15 group-hover:text-white/40 group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
@@ -449,7 +451,7 @@ function AboutPage() {
                     { value: strategy.metrics.drawdown, label: 'Drawdown' },
                   ].map((m) => (
                     <div key={m.label} className="text-center">
-                      <div className={`text-sm font-[family-name:var(--font-space)] font-bold ${'highlight' in m && m.highlight ? 'text-[#c8ff00]' : 'text-white/70'}`}>
+                      <div className={`text-sm font-[family-name:var(--font-space)] font-bold ${'highlight' in m && m.highlight ? 'text-[#38bdf8]' : 'text-white/70'}`}>
                         {m.value}
                       </div>
                       <div className="text-[8px] text-white/25 uppercase tracking-widest mt-0.5">{m.label}</div>
@@ -521,10 +523,11 @@ function ProjectsPage() {
       </motion.p>
 
       <motion.div
-        className="space-y-3"
+        className="space-y-4"
         variants={staggerContainer}
         initial="initial"
         animate="animate"
+        style={{ perspective: '1200px' }}
       >
         {projects.map((project) => (
           <motion.a
@@ -540,16 +543,15 @@ function ProjectsPage() {
           >
             <motion.div
               variants={cardHover}
-              className={`border rounded-xl p-5 transition-colors duration-200 ${
-                project.featured
-                  ? 'bg-[#141414] border-[#c8ff00]/20 hover:border-[#c8ff00]/40'
-                  : 'bg-[#141414] border-white/[0.06] hover:border-white/[0.14]'
-              }`}
+              className={`border rounded-xl p-5 transition-colors duration-200 ${project.featured
+                ? 'bg-[#141414] border-[#38bdf8]/20 hover:border-[#38bdf8]/40'
+                : 'bg-[#141414] border-white/[0.06] hover:border-white/[0.14]'
+                }`}
             >
               <div className="flex items-start justify-between gap-4 mb-2">
                 <div className="flex items-center gap-3">
                   {project.featured && (
-                    <span className="w-2 h-2 rounded-full bg-[#c8ff00] shrink-0" />
+                    <span className="w-2 h-2 rounded-full bg-[#38bdf8] shrink-0" />
                   )}
                   <h3 className={`text-[15px] font-semibold ${project.featured ? 'text-white' : 'text-white/90'}`}>
                     {project.title}
@@ -602,6 +604,7 @@ function ExperiencePage() {
         variants={staggerContainer}
         initial="initial"
         animate="animate"
+        style={{ perspective: '1200px' }}
       >
         {/* Timeline line */}
         <div className="absolute left-[7px] top-3 bottom-3 w-px bg-white/[0.06]" />
@@ -616,18 +619,25 @@ function ExperiencePage() {
               {/* Dot */}
               <div className="absolute left-0 top-2 w-[15px] h-[15px] rounded-full border-2 border-white/20 bg-[#0a0a0a]" />
 
-              <div className="bg-[#141414] border border-white/[0.06] rounded-xl p-5 hover:border-white/[0.14] transition-colors">
+              <motion.div
+                className="bg-[#141414] border border-white/[0.06] rounded-xl p-5 hover:border-white/[0.14] transition-colors"
+                whileHover={{ y: -3, scale: 1.01, rotateX: 2, rotateY: -1, z: 10 }}
+                transition={{ duration: 0.3, ease: 'easeOut' as const }}
+              >
                 <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
                   <h3 className="text-[15px] font-semibold text-white">{exp.title}</h3>
                   <span className="text-[11px] text-white/30">{exp.period}</span>
                 </div>
                 <div className="flex items-center gap-2 mb-3 text-[12px] text-white/40">
+                  {exp.logo && (
+                    <img src={exp.logo} alt={exp.company} className="w-5 h-5 rounded-md object-contain shrink-0" />
+                  )}
                   <span>{exp.company}</span>
                   <span className="text-white/15">--</span>
                   <span>{exp.location}</span>
                 </div>
                 <p className="text-sm text-white/50 leading-relaxed">{exp.description}</p>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </div>
@@ -809,8 +819,8 @@ function ContactPage() {
         className="flex items-center gap-3 bg-[#141414] border border-white/[0.06] rounded-xl px-5 py-4"
       >
         <span className="relative flex h-2 w-2">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#c8ff00] opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-[#c8ff00]"></span>
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#38bdf8] opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-[#38bdf8]"></span>
         </span>
         <span className="text-sm text-white/50">Available for opportunities</span>
       </motion.div>
@@ -899,7 +909,7 @@ export default function Home() {
               animate={{ opacity: [0.4, 0.7, 0.4] }}
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
             />
-            <div className="relative w-20 h-20 rounded-2xl overflow-hidden border border-white/[0.1] ring-1 ring-[#c8ff00]/10 shrink-0">
+            <div className="relative w-20 h-20 rounded-2xl overflow-hidden border border-white/[0.1] ring-1 ring-[#38bdf8]/10 shrink-0">
               <Image
                 src="/profile.jpeg"
                 alt="Naitik Gupta"
@@ -954,16 +964,16 @@ export default function Home() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="space-y-1.5"
           >
-            <h2 className="text-[10px] font-medium text-[#c8ff00]/40 uppercase tracking-widest mb-2.5 flex items-center gap-2">
-              <span className="w-4 h-px bg-[#c8ff00]/20" />
+            <h2 className="text-[10px] font-medium text-[#38bdf8]/40 uppercase tracking-widest mb-2.5 flex items-center gap-2">
+              <span className="w-4 h-px bg-[#38bdf8]/20" />
               Contact
             </h2>
             <a
               href="mailto:naitikpgupta@gmail.com"
               className="group flex items-center gap-2.5 px-3 py-2 -mx-3 rounded-lg hover:bg-white/[0.03] transition-all duration-200"
             >
-              <span className="w-6 h-6 rounded-md bg-white/[0.04] border border-white/[0.06] flex items-center justify-center group-hover:border-[#c8ff00]/20 group-hover:bg-[#c8ff00]/[0.04] transition-colors">
-                <svg className="w-3 h-3 text-white/30 group-hover:text-[#c8ff00]/60 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+              <span className="w-6 h-6 rounded-md bg-white/[0.04] border border-white/[0.06] flex items-center justify-center group-hover:border-[#38bdf8]/20 group-hover:bg-[#38bdf8]/[0.04] transition-colors">
+                <svg className="w-3 h-3 text-white/30 group-hover:text-[#38bdf8]/60 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                 </svg>
               </span>
@@ -975,44 +985,27 @@ export default function Home() {
               rel="noopener noreferrer"
               className="group flex items-center gap-2.5 px-3 py-2 -mx-3 rounded-lg hover:bg-white/[0.03] transition-all duration-200"
             >
-              <span className="w-6 h-6 rounded-md bg-white/[0.04] border border-white/[0.06] flex items-center justify-center group-hover:border-[#c8ff00]/20 group-hover:bg-[#c8ff00]/[0.04] transition-colors">
-                <svg className="w-3 h-3 text-white/30 group-hover:text-[#c8ff00]/60 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+              <span className="w-6 h-6 rounded-md bg-white/[0.04] border border-white/[0.06] flex items-center justify-center group-hover:border-[#38bdf8]/20 group-hover:bg-[#38bdf8]/[0.04] transition-colors">
+                <svg className="w-3 h-3 text-white/30 group-hover:text-[#38bdf8]/60 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
                 </svg>
               </span>
               <span className="text-[12px] text-white/50 group-hover:text-white/80 transition-colors">naitikg.me</span>
             </a>
+            <a
+              href="https://saerin.tech"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2.5 px-3 py-2 -mx-3 rounded-lg hover:bg-white/[0.03] transition-all duration-200"
+            >
+              <span className="w-6 h-6 rounded-md bg-white/[0.04] border border-white/[0.06] flex items-center justify-center group-hover:border-[#38bdf8]/20 group-hover:bg-[#38bdf8]/[0.04] transition-colors overflow-hidden">
+                <img src="/saerin-logo.png" alt="Saerin" className="w-3.5 h-3.5 object-contain opacity-50 group-hover:opacity-90 transition-opacity" />
+              </span>
+              <span className="text-[12px] text-white/50 group-hover:text-white/80 transition-colors">saerin.tech</span>
+            </a>
           </motion.div>
 
-          {/* Skills */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.25, duration: 0.5 }}
-          >
-            <h2 className="text-[10px] font-medium text-[#c8ff00]/40 uppercase tracking-widest mb-3 flex items-center gap-2">
-              <span className="w-4 h-px bg-[#c8ff00]/20" />
-              Skills
-            </h2>
-            <div className="flex flex-wrap gap-1.5">
-              {skills.map((skill, i) => (
-                <motion.span
-                  key={skill}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.3 + i * 0.04, duration: 0.3 }}
-                  whileHover={{ scale: 1.05, y: -1 }}
-                  className={`px-2.5 py-1 text-[11px] rounded-lg cursor-default transition-colors duration-200 ${
-                    i === 0
-                      ? 'text-[#c8ff00]/80 bg-[#c8ff00]/[0.06] border border-[#c8ff00]/15 hover:border-[#c8ff00]/30'
-                      : 'text-white/50 bg-white/[0.03] border border-white/[0.06] hover:border-white/[0.14] hover:text-white/70'
-                  }`}
-                >
-                  {skill}
-                </motion.span>
-              ))}
-            </div>
-          </motion.div>
+          {/* Skills section removed */}
         </div>
 
         {/* Social links at bottom */}
@@ -1027,24 +1020,30 @@ export default function Home() {
             className="h-px mb-5"
             style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%)' }}
           />
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col gap-2">
             {socialLinks.map((link, i) => (
               <motion.a
                 key={link.label}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative w-9 h-9 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-white/25 hover:text-white/70 hover:border-white/[0.15] hover:bg-white/[0.05] transition-all duration-200 group"
+                className="relative w-full h-11 px-4 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-between text-white/25 hover:text-white/70 hover:border-white/[0.15] hover:bg-white/[0.05] transition-all duration-200 group"
                 aria-label={link.label}
-                whileHover={{ scale: 1.08, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileHover={{ scale: 1.02, x: 5 }}
+                whileTap={{ scale: 0.98 }}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.35 + i * 0.06, duration: 0.4 }}
               >
                 {/* Hover glow */}
-                <span className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: 'radial-gradient(circle, rgba(200,255,0,0.06) 0%, transparent 70%)' }} />
-                <SocialIcon type={link.icon} />
+                <span className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: 'radial-gradient(circle at left, rgba(56,189,248,0.1) 0%, transparent 70%)' }} />
+                <div className="flex items-center gap-3">
+                  <div className="text-white/40 group-hover:text-[#38bdf8] transition-colors"><SocialIcon type={link.icon} /></div>
+                  <span className="text-xs font-medium tracking-wide text-white/60 group-hover:text-white transition-colors">{link.label}</span>
+                </div>
+                <svg className="w-3.5 h-3.5 text-white/10 group-hover:text-white/30 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
               </motion.a>
             ))}
           </div>
@@ -1103,11 +1102,10 @@ export default function Home() {
               <motion.button
                 key={item.id}
                 onClick={() => navigate(item.id)}
-                className={`group relative w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 ${
-                  isActive
-                    ? 'bg-white/10 text-white'
-                    : 'text-white/25 hover:text-white/50 hover:bg-white/[0.04]'
-                }`}
+                className={`group relative w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 ${isActive
+                  ? 'bg-white/10 text-white'
+                  : 'text-white/25 hover:text-white/50 hover:bg-white/[0.04]'
+                  }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 title={`${item.label} (${item.key})`}
@@ -1138,7 +1136,7 @@ export default function Home() {
                 {isActive && (
                   <motion.span
                     layoutId="nav-indicator"
-                    className="absolute -right-[7px] w-[3px] h-5 bg-[#c8ff00] rounded-l-full"
+                    className="absolute -right-[7px] w-[3px] h-5 bg-[#38bdf8] rounded-l-full"
                     transition={{ type: 'spring', stiffness: 500, damping: 35 }}
                   >
                     {/* Glow spill from the indicator */}
@@ -1183,9 +1181,8 @@ export default function Home() {
             <button
               key={item.id}
               onClick={() => navigate(item.id)}
-              className={`flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-xl transition-colors ${
-                isActive ? 'text-[#c8ff00]' : 'text-white/30'
-              }`}
+              className={`flex flex-col items-center gap-0.5 px-3 py-1.5 rounded-xl transition-colors ${isActive ? 'text-[#38bdf8]' : 'text-white/30'
+                }`}
             >
               <span className="text-[11px] font-bold">{item.key}</span>
               <span className="text-[9px]">{item.label}</span>
@@ -1197,12 +1194,12 @@ export default function Home() {
       {/* ─── MAIN CONTENT ─── */}
       <main className="flex-1 lg:ml-[344px] min-h-screen relative">
         {/* Animated background -- subtle noise mesh */}
-        <div className="fixed inset-0 lg:left-[344px] pointer-events-none overflow-hidden z-0">
+        <div className="fixed inset-0 lg:left-[344px] pointer-events-none overflow-hidden z-0" style={{ perspective: '1000px' }}>
           {/* Drifting orb A -- slow orbit top-right */}
           <motion.div
             className="absolute w-[900px] h-[900px] rounded-full opacity-[0.04]"
             style={{
-              background: 'radial-gradient(circle, rgba(200,255,0,1) 0%, transparent 50%)',
+              background: 'radial-gradient(circle, rgba(56,189,248,1) 0%, transparent 50%)',
               filter: 'blur(120px)',
             }}
             animate={{
@@ -1217,7 +1214,7 @@ export default function Home() {
           <motion.div
             className="absolute w-[700px] h-[700px] rounded-full opacity-[0.035]"
             style={{
-              background: 'radial-gradient(circle, rgba(200,255,0,1) 0%, transparent 50%)',
+              background: 'radial-gradient(circle, rgba(56,189,248,1) 0%, transparent 50%)',
               filter: 'blur(110px)',
             }}
             animate={{
@@ -1243,6 +1240,23 @@ export default function Home() {
             transition={{ duration: 30, repeat: Infinity, ease: 'easeInOut', delay: 5 }}
             initial={{ top: '30%', left: '20%' }}
           />
+
+          {/* 3D Wireframe Grid Element */}
+          <motion.div
+            className="absolute top-[20%] right-[10%] w-[600px] h-[600px] opacity-[0.08]"
+            style={{
+              backgroundImage: 'linear-gradient(#38bdf8 1px, transparent 1px), linear-gradient(90deg, #38bdf8 1px, transparent 1px)',
+              backgroundSize: '40px 40px',
+              rotateX: 60,
+              rotateZ: -45,
+            }}
+            animate={{
+              z: [0, 50, 0],
+              rotateZ: [-45, -35, -45],
+            }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          />
+
           {/* Fine grain noise overlay for texture */}
           <div
             className="absolute inset-0 opacity-[0.015]"
